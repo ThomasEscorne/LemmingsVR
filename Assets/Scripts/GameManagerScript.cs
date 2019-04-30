@@ -45,6 +45,34 @@ public class GameManagerScript : MonoBehaviour
                 heldObj.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
                 isHolding = true;
             }
+
+            if (target.tag == "Elevator")
+            {
+                Debug.Log("Selecting elevator");
+                Elevator elevator = target.GetComponentInParent<Elevator>();
+                if (elevator)
+                {
+                    Debug.Log("Can slide");
+                    elevator.Move();
+                }
+                else
+                {
+                    Debug.Log("Can't slide");
+                }
+            }
+
+            if (target.tag == "Bridge")
+            {
+                Debug.Log("Selecting bridge");
+
+                Bridge bridge = target.GetComponentInParent<Bridge>();
+                if (bridge)
+                {
+                    Debug.Log("Bridge");
+                    bridge.Interact();
+                }
+
+            }
         }
         else
         {

@@ -218,6 +218,7 @@ public class lemming_behavior : MonoBehaviour
     IEnumerator Die()
     {
         set_attitude(Attitude.DYING);
+        gameObject.GetComponent<CapsuleCollider>().enabled = false;
         yield return new WaitForSeconds(5);
         OnDestroy();
         Destroy(gameObject);
