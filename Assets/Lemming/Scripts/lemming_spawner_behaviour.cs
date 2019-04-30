@@ -7,6 +7,7 @@ public class lemming_spawner_behaviour : MonoBehaviour
 
     public GameObject lemming;
     public GameObject lemming_object;
+    public int axis = 0;
 
     public int number_of_lemmings;
     // Start is called before the first frame update
@@ -27,6 +28,10 @@ public class lemming_spawner_behaviour : MonoBehaviour
         for (int i = 0; i < number_of_lemmings; i++)
         {
             GameObject container = Instantiate(lemming, new Vector3(transform.position.x, transform.position.y - 0.7f, transform.position.z), Quaternion.identity) as GameObject;
+            if (axis == 1)
+                container.transform.Rotate(0, 90, 0);
+            else if (axis == 2)
+                container.transform.Rotate(0, 180, 0);
             if (lemming_object)
             {
                 GameObject stuff = Instantiate(lemming_object) as GameObject;

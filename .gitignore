@@ -4,3 +4,7 @@
 [Bb]uild/
 [Bb]uilds/
 Assets/AssetStoreTools*
+.vscode/
+Assembly-CSharp.csproj
+Assembly-CSharp-Editor.csproj
+LemmingsVR.sln

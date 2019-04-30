@@ -20,6 +20,7 @@ public class lemming_behavior : MonoBehaviour
     public bool IsADispenser = false;
     public bool IsStill = false;
     public int direction = 1;
+
     
     //Jobs
     public lemming_builder_job BuilderJob;
@@ -98,7 +99,9 @@ public class lemming_behavior : MonoBehaviour
             transform.Rotate(0, 180, 0);
         }
         else if (is_finishing == true)
+        {
             transform.Translate(0, 0, 0.015f);
+        }
         else if (is_grounded == true)
         {
             set_attitude(Attitude.WALKING);
