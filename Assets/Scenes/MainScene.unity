@@ -16120,6 +16120,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cave_Scene
       objectReference: {fileID: 0}
+    - target: {fileID: 4899187587679992383, guid: af11e1d7a9d77ea4b9df48359df6c75b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7998557094289153604, guid: af11e1d7a9d77ea4b9df48359df6c75b,
         type: 3}
       propertyPath: m_LocalPosition.x
