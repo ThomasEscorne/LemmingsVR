@@ -42,7 +42,7 @@ public class GameManagerScript : MonoBehaviour
                 currentHolding = lastTouchpadClick;
                 heldObj.transform.localPosition = new Vector3(0, 0, 0);
                 heldObj.transform.localEulerAngles = new Vector3(-50, 0, 0);
-                heldObj.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+                heldObj.transform.localScale = new Vector3(0.002f, 0.002f, 0.002f);
                 isHolding = true;
             }
 
