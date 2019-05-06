@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6850958922185106978}
   - component: {fileID: 6154048463865750664}
   m_Layer: 0
-  m_Name: Cube (6)
-  m_TagString: Untagged
+  m_Name: Roof_tile_02
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

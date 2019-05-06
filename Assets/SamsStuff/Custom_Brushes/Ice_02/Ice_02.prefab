@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7397867259894638368}
   - component: {fileID: 8062701898419382051}
   m_Layer: 0
-  m_Name: Cube (7)
-  m_TagString: Untagged
+  m_Name: Ice_02
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

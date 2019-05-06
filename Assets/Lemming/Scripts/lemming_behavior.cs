@@ -7,7 +7,7 @@ public class lemming_behavior : MonoBehaviour
     [SerializeField] private string GROUND = "ground";
     [SerializeField] private string WALL = "wall";
     [SerializeField] private string LEMMING = "lemming";
-    public float speed = 0.025f;
+    public float speed = 0.015f;
     public bool is_grounded = false;
     private bool is_climbing = false;
     private bool has_to_turn = false;
@@ -118,21 +118,23 @@ public class lemming_behavior : MonoBehaviour
 
     IEnumerator Mining()
     {
+        gameObject.transform.tag = "wall";
         mining_started = true;
         yield return new WaitForSeconds(3);
         MiningJob.DestroyMapRadius();
         mining_started = false;
         is_mining = false;
-        set_attitude(Attitude.WALKING);
-        yield return new WaitForSeconds(1);
-        MiningJob.SetFacingWallTag();
+        gameObject.transform.tag = "lemming";
+        //set_attitude(Attitude.WALKING);
+//        yield return new WaitForSeconds(1);
+//        MiningJob.SetFacingWallTag();
     }
     
     //TODO: How many layers to create
     //TODO: Rotation depending on player
     IEnumerator Building()
     {
-        Debug.Log("Building ...");
+        gameObject.transform.tag = "wall";
         building_started = true;
         is_building = true;
         yield return new WaitForSeconds(3);
@@ -154,6 +156,7 @@ public class lemming_behavior : MonoBehaviour
         set_attitude(Attitude.WALKING);
         is_building = false;
         building_started = false;
+        gameObject.transform.tag = "lemming";
     }
 
     public void FinishTriggered()

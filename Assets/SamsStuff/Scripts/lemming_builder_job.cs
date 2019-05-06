@@ -9,12 +9,24 @@ using Vector3 = UnityEngine.Vector3;
 public class lemming_builder_job : MonoBehaviour
 {
     private GameObject     _quad; 
-    public Tilemap    tilemap;
+    private Tilemap        tilemap;
     public GameObject    floor;
-    private int    _rotation = 1;
+    private int        _rotation = 1;
+
+
+    void Start()
+    {
+        tilemap = GameObject.Find("Tilemap").GetComponent<Tilemap>();
+    }
+    
 
     private void InitQuad()
     {
+        PhysicMaterial physicMaterial = new PhysicMaterial();
+
+        physicMaterial.dynamicFriction = 1f;
+        physicMaterial.staticFriction = 1f;
+        physicMaterial.bounciness = 0.0f;
         var tmpPosition = transform.position;
         var checkPosition = transform.position;
         float xOffset = 2f * _rotation;
@@ -41,6 +53,7 @@ public class lemming_builder_job : MonoBehaviour
         _quad.transform.position = cellCenter;
         _quad.tag = "ground";
         _quad.transform.parent = tilemap.transform;
+        _quad.GetComponent<MeshCollider>().material = physicMaterial;
     }
 
     public GameObject InitGroundTiles(float xOffset, float yOffset)
@@ -67,7 +80,7 @@ public class lemming_builder_job : MonoBehaviour
         for (var i = 0; i < nbFloorTiles; i++)
         {
             GameObject tile = InitGroundTiles(xOffset, yOffset);
-            if (i == 0)
+            if (i == 1)
                 tile.gameObject.name = "built_floor";
             xOffset += _rotation;
         }

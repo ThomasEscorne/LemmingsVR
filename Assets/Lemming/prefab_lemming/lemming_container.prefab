@@ -26,8 +26,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a142acffde887484e838e0525f9adfdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemap: {fileID: 0}
-  floor: {fileID: 0}
+  floor: {fileID: 795379951187591431, guid: 0fdb4c11a028c874ba2ec7aacf8390c1, type: 3}
 --- !u!1 &5659635981410450014
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,6 +145,11 @@ PrefabInstance:
       propertyPath: BuilderJob
       value: 
       objectReference: {fileID: 6369356419784398501}
+    - target: {fileID: 7920432470562191299, guid: 73eb3559ac049284499ba6a5c7d747bb,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73eb3559ac049284499ba6a5c7d747bb, type: 3}
 --- !u!1 &584937518566754710 stripped
