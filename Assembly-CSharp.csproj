@@ -99,6 +99,7 @@
     <Compile Include="Assets\Scripts\Platforms\Elevator.cs" />
     <Compile Include="Assets\Scripts\UI\LevelHandler.cs" />
     <Compile Include="Assets\Scripts\UI\MenuController.cs" />
+    <Compile Include="Assets\Starfield Skybox\Demo\Script\LookCamera.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_GazeTracker.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_LaserPointer.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_Teleporter.cs" />
