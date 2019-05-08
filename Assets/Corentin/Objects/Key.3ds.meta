@@ -1,0 +1,168 @@
+fileFormatVersion: 2
+guid: 4f4803cd40355eb439b9eed26eb80851
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Camera_1
+    100002: Camera_1.target
+    100004: Cap_1
+    100006: Cap_2
+    100008: Capsule
+    100010: Cylinder
+    100012: Extrude
+    100014: //RootNode
+    100016: Null_1
+    100018: Rounding_1
+    100020: Rounding_2
+    100022: Sweep
+    100024: Torus
+    100026: Torus_1
+    100028: Torus_2
+    100030: Torus_3
+    100032: Torus_4
+    400000: Camera_1
+    400002: Camera_1.target
+    400004: Cap_1
+    400006: Cap_2
+    400008: Capsule
+    400010: Cylinder
+    400012: Extrude
+    400014: //RootNode
+    400016: Null_1
+    400018: Rounding_1
+    400020: Rounding_2
+    400022: Sweep
+    400024: Torus
+    400026: Torus_1
+    400028: Torus_2
+    400030: Torus_3
+    400032: Torus_4
+    2300000: Cap_1
+    2300002: Cap_2
+    2300004: Capsule
+    2300006: Cylinder
+    2300008: Extrude
+    2300010: Null_1
+    2300012: Rounding_1
+    2300014: Rounding_2
+    2300016: Sweep
+    2300018: Torus
+    2300020: Torus_1
+    2300022: Torus_2
+    2300024: Torus_3
+    2300026: Torus_4
+    3300000: Cap_1
+    3300002: Cap_2
+    3300004: Capsule
+    3300006: Cylinder
+    3300008: Extrude
+    3300010: Null_1
+    3300012: Rounding_1
+    3300014: Rounding_2
+    3300016: Sweep
+    3300018: Torus
+    3300020: Torus_1
+    3300022: Torus_2
+    3300024: Torus_3
+    3300026: Torus_4
+    4300000: Null_1
+    4300002: Torus_4
+    4300004: Capsule
+    4300006: Extrude
+    4300008: Rounding_1
+    4300010: Cap_1
+    4300012: Rounding_2
+    4300014: Cap_2
+    4300016: Torus_3
+    4300018: Torus_2
+    4300020: Torus_1
+    4300022: Torus
+    4300024: Cylinder
+    4300026: Sweep
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

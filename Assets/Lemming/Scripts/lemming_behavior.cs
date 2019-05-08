@@ -7,7 +7,7 @@ public class lemming_behavior : MonoBehaviour
     [SerializeField] private string GROUND = "ground";
     [SerializeField] private string WALL = "wall";
     [SerializeField] private string LEMMING = "lemming";
-    public float speed = 0.015f;
+    public float speed = 0.003f;
     public bool is_grounded = false;
     private bool is_climbing = false;
     private bool has_to_turn = false;
@@ -110,7 +110,7 @@ public class lemming_behavior : MonoBehaviour
         else if (current_object && current_object._name == "umbrella")
         {
             set_attitude(Attitude.FLOATING);
-            transform.Translate(0, 0, 0.005f);
+            transform.Translate(0, 0, 0.001f);
         }
         else
             set_attitude(Attitude.FALLING);
@@ -188,7 +188,7 @@ public class lemming_behavior : MonoBehaviour
             touching_ground++;
             is_grounded = true;
             StopCoroutine("DieFromFall");
-            if (transform.position.y < old_y - 5)
+            if (transform.position.y < old_y - 1)
             {
                 if (current_object && current_object._name == "umbrella")
                     loose_object();

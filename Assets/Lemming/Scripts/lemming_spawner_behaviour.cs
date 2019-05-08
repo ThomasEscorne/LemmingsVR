@@ -27,7 +27,7 @@ public class lemming_spawner_behaviour : MonoBehaviour
     {
         for (int i = 0; i < number_of_lemmings; i++)
         {
-            GameObject container = Instantiate(lemming, new Vector3(transform.position.x, transform.position.y - 0.7f, transform.position.z), Quaternion.identity) as GameObject;
+            GameObject container = Instantiate(lemming, new Vector3(transform.position.x, transform.position.y - 0.14f, transform.position.z), Quaternion.identity) as GameObject;
             if (axis == 1)
                 container.transform.Rotate(0, 90, 0);
             else if (axis == 2)

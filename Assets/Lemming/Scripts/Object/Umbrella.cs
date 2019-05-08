@@ -8,15 +8,15 @@ public class Umbrella : LemmingObject
     void Start()
     {
         transform.SetPositionAndRotation(new Vector3(-200, -200, 2000), transform.rotation);
-        x_offset = 0.0844f;
-        y_offset = 2.1f;
+        x_offset = 0.01688f;
+        y_offset = 0.42f;
         _name = "umbrella";
     }
 
     protected override void act_on_lemming() {
         if (lemming)
         {
-            lemming.GetComponent<ConstantForce>().force = new Vector3(0, +8.2f, 0);
+            lemming.GetComponent<ConstantForce>().force = new Vector3(0, +1.9f, 0);
         }
     }
 
@@ -24,7 +24,7 @@ public class Umbrella : LemmingObject
     {
        if (lemming)
         {
-            lemming.GetComponent<ConstantForce>().force = new Vector3(0, 0, 0);
+            lemming.GetComponent<ConstantForce>().force = new Vector3(0, +1.6f, 0);
         }
         Destroy(gameObject);
     }

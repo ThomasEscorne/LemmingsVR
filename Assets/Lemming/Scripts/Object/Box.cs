@@ -8,7 +8,7 @@ public class Box : LemmingObject
     void Start()
     {
         transform.SetPositionAndRotation(new Vector3(-200, -200, 2000), transform.rotation);
-        y_offset = 2.1f;
+        y_offset = 0.42f;
         _name = "Box";
     }
 

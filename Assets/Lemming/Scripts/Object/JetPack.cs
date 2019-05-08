@@ -8,8 +8,8 @@ public class JetPack : LemmingObject
     void Start()
     {
         transform.SetPositionAndRotation(new Vector3(-200, -200, 2000), transform.rotation);
-        x_offset = -0.244f;
-        y_offset = 0.5f;
+        x_offset = -0.0488f;
+        y_offset = 0.1f;
         _name = "jetpack";
     }
 
@@ -17,7 +17,7 @@ public class JetPack : LemmingObject
     {
         if (lemming)
         {
-            lemming.GetComponent<ConstantForce>().force = new Vector3(0.3f * lemming.GetComponent<lemming_behavior>().direction, +11.2f, 0);
+            lemming.GetComponent<ConstantForce>().force = new Vector3(0.02f * lemming.GetComponent<lemming_behavior>().direction, +2.02f, 0);
             StartCoroutine("Duration");
         }
     }
@@ -26,7 +26,7 @@ public class JetPack : LemmingObject
     {
         if (lemming)
         {
-            lemming.GetComponent<ConstantForce>().force = new Vector3(0, 0, 0);
+            lemming.GetComponent<ConstantForce>().force = new Vector3(0, 1.6f, 0);
             lemming.GetComponent<lemming_behavior>().set_attitude(lemming_behavior.Attitude.FALLING);
         }
         Destroy(gameObject);
