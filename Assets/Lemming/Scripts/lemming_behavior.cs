@@ -7,7 +7,7 @@ public class lemming_behavior : MonoBehaviour
     [SerializeField] private string GROUND = "ground";
     [SerializeField] private string WALL = "wall";
     [SerializeField] private string LEMMING = "lemming";
-    public float speed = 0.003f;
+    public float speed = 0.007f;
     public bool is_grounded = false;
     private bool is_climbing = false;
     private bool has_to_turn = false;
@@ -100,7 +100,7 @@ public class lemming_behavior : MonoBehaviour
         }
         else if (is_finishing == true)
         {
-            transform.Translate(0, 0, 0.015f);
+            transform.Translate(0, 0, 0.002f);
         }
         else if (is_grounded == true)
         {
@@ -224,7 +224,7 @@ public class lemming_behavior : MonoBehaviour
     IEnumerator Die()
     {
         set_attitude(Attitude.DYING);
-        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        //gameObject.GetComponent<CapsuleCollider>().enabled = false;
         yield return new WaitForSeconds(5);
         OnDestroy();
         Destroy(gameObject);

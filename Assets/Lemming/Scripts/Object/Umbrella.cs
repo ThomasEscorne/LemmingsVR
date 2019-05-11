@@ -17,6 +17,7 @@ public class Umbrella : LemmingObject
         if (lemming)
         {
             lemming.GetComponent<ConstantForce>().force = new Vector3(0, +1.9f, 0);
+            lemming.GetComponent<lemming_behavior>().speed = 0.008f; 
         }
     }
 
@@ -25,6 +26,7 @@ public class Umbrella : LemmingObject
        if (lemming)
         {
             lemming.GetComponent<ConstantForce>().force = new Vector3(0, +1.6f, 0);
+            lemming.GetComponent<lemming_behavior>().speed = 0.007f;
         }
         Destroy(gameObject);
     }
