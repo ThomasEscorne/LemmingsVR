@@ -8,6 +8,10 @@ public class GameManagerScript : MonoBehaviour
 {
     public GameObject UmbrellaModel;
     public GameObject UmbrellaPrefab;
+    public GameObject HammerModel;
+    public GameObject HammerPrefab;
+    public GameObject PickaxeModel;
+    public GameObject PickaxePrefab;
     public VRTK_ControllerEvents leftControllerEvents;
     public VRTK_ControllerEvents rightControllerEvents;
 
@@ -42,7 +46,33 @@ public class GameManagerScript : MonoBehaviour
                 currentHolding = lastTouchpadClick;
                 heldObj.transform.localPosition = new Vector3(0, 0, 0);
                 heldObj.transform.localEulerAngles = new Vector3(-50, 0, 0);
-                heldObj.transform.localScale = new Vector3(0.002f, 0.002f, 0.002f);
+                heldObj.transform.localScale = new Vector3(0.003f, 0.003f, 0.003f);
+                isHolding = true;
+            }
+
+            if (target.name == "HammerSpawner")
+            {
+                Debug.Log("Hammer spawn in your hand");
+                heldObjType = "hammer";
+                heldObj = Instantiate(HammerModel) as GameObject;
+                heldObj.transform.parent = GameObject.Find(lastTouchpadClick).transform;
+                currentHolding = lastTouchpadClick;
+                heldObj.transform.localPosition = new Vector3(0.0032f, 0.0199f, 0.0676f);
+                heldObj.transform.localEulerAngles = new Vector3(-105.013f, -0.1560059f, -178.728f);
+                heldObj.transform.localScale = new Vector3(0.004f, 0.004f, 0.004f);
+                isHolding = true;
+            }
+
+            if (target.name == "PickaxeSpawner")
+            {
+                Debug.Log("Pickaxe spawn in your hand");
+                heldObjType = "pickaxe";
+                heldObj = Instantiate(PickaxeModel) as GameObject;
+                heldObj.transform.parent = GameObject.Find(lastTouchpadClick).transform;
+                currentHolding = lastTouchpadClick;
+                heldObj.transform.localPosition = new Vector3(0.014f, 0.0065f, 0.0934f);
+                heldObj.transform.localEulerAngles = new Vector3(0, -90, 0);
+                heldObj.transform.localScale = new Vector3(1f, 1f, 1f);
                 isHolding = true;
             }
 
@@ -86,6 +116,16 @@ public class GameManagerScript : MonoBehaviour
                     {
                         GameObject item = Instantiate(UmbrellaPrefab) as GameObject;
                         target.GetComponent<lemming_behavior>().give_object(item.GetComponent<LemmingObject>());
+                    }
+                    else if (heldObjType == "hammer")
+                    {
+                        GameObject item = Instantiate(HammerPrefab) as GameObject;
+                        target.GetComponent<lemming_behavior>().is_building = true;
+                    }
+                    else if (heldObjType == "pickaxe")
+                    {
+                        GameObject item = Instantiate(PickaxePrefab) as GameObject;
+                        target.GetComponent<lemming_behavior>().is_mining = true;
                     }
                 }
             }
