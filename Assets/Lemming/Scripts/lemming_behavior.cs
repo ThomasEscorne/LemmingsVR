@@ -178,7 +178,7 @@ public class lemming_behavior : MonoBehaviour
             if(!gameObject.CompareTag("wall"))
                 Physics.IgnoreCollision(col.collider, caps_col);
         }
-        else if (col.gameObject.CompareTag("ground"))
+        else if (col.gameObject.CompareTag("ground") || col.transform.parent.gameObject.CompareTag("ground"))
         {
             if (col.gameObject.transform.name == "built_floor")
             {
@@ -200,7 +200,7 @@ public class lemming_behavior : MonoBehaviour
             }
             old_y = transform.position.y;
         }
-        else if (col.gameObject.CompareTag("wall"))
+        else if (col.gameObject.CompareTag("wall") || col.transform.parent.gameObject.CompareTag("wall"))
         {
             has_to_turn = true;
         }
@@ -209,7 +209,7 @@ public class lemming_behavior : MonoBehaviour
 
     void OnCollisionExit(Collision col)
     {
-        if (col.gameObject.CompareTag("ground"))
+        if (col.gameObject.CompareTag("ground") || col.transform.parent.gameObject.CompareTag("ground"))
         {
             touching_ground--;
             if (touching_ground <= 0)
