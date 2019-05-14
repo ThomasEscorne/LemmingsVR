@@ -6,6 +6,7 @@ public class LevelHandler : MonoBehaviour
 {
     public GameObject LevelMenu;
     public GameObject Level1;
+    public GameObject Menu;
 
     public void StartLevel1()
     {
@@ -18,5 +19,6 @@ public class LevelHandler : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         LevelMenu.SetActive(false);
         Level.SetActive(true);
+        Menu.SetActive(false);
     }
 }

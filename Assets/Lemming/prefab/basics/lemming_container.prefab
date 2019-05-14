@@ -26,6 +26,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a142acffde887484e838e0525f9adfdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tilemap: {fileID: 0}
   floor: {fileID: 795379951187591431, guid: 0fdb4c11a028c874ba2ec7aacf8390c1, type: 3}
 --- !u!1 &5659635981410450014
 GameObject:
@@ -65,11 +66,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6495448092522661362}
     m_Modifications:
-    - target: {fileID: 7920432470405920996, guid: 73eb3559ac049284499ba6a5c7d747bb,
-        type: 3}
-      propertyPath: m_Name
-      value: lemming
-      objectReference: {fileID: 0}
     - target: {fileID: 7920432470405948612, guid: 73eb3559ac049284499ba6a5c7d747bb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -135,6 +131,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.1038545
       objectReference: {fileID: 0}
+    - target: {fileID: 7920432470405920996, guid: 73eb3559ac049284499ba6a5c7d747bb,
+        type: 3}
+      propertyPath: m_Name
+      value: lemming
+      objectReference: {fileID: 0}
     - target: {fileID: 7920432470562191299, guid: 73eb3559ac049284499ba6a5c7d747bb,
         type: 3}
       propertyPath: m_Mass
@@ -153,7 +154,7 @@ PrefabInstance:
     - target: {fileID: 7920432470562191300, guid: 73eb3559ac049284499ba6a5c7d747bb,
         type: 3}
       propertyPath: speed
-      value: 0.007
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 1090618206634847386, guid: 73eb3559ac049284499ba6a5c7d747bb,
         type: 3}
