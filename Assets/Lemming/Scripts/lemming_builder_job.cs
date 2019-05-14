@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Numerics;
@@ -9,17 +10,16 @@ using Vector3 = UnityEngine.Vector3;
 public class lemming_builder_job : MonoBehaviour
 {
     private GameObject     _quad; 
-    private Tilemap        tilemap;
+    public Tilemap        tilemap;
     public GameObject    floor;
     private int        _rotation = 1;
 
-
     void Start()
     {
-        tilemap = GameObject.Find("Tilemap").GetComponent<Tilemap>();
+        if (tilemap == null)
+            throw new Exception("You need to set the correct tilemap in the lemming spawner");
     }
     
-
     private void InitQuad()
     {
         PhysicMaterial physicMaterial = new PhysicMaterial();
@@ -29,30 +29,32 @@ public class lemming_builder_job : MonoBehaviour
         physicMaterial.bounciness = 0.0f;
         var tmpPosition = transform.position;
         var checkPosition = transform.position;
-        float xOffset = 2f * _rotation;
-        float yOffset = 1f;
+        float xOffset = 0.2f * _rotation;
+        float yOffset = 0.1f;
         
         tmpPosition.x += xOffset;
         tmpPosition.y += yOffset;
         Vector3Int currentCell = tilemap.WorldToCell(tmpPosition);
         Vector3 cellCenter = tilemap.GetCellCenterWorld(currentCell);
 
-        checkPosition.x += 1 * _rotation;
-        Vector3Int checkCurrentCell = tilemap.WorldToCell(checkPosition);
-        Vector3 checkCellCenter = tilemap.GetCellCenterWorld(checkCurrentCell);
+//        checkPosition.x += 1 * _rotation;
+//        Vector3Int checkCurrentCell = tilemap.WorldToCell(checkPosition);
+//        Vector3 checkCellCenter = tilemap.GetCellCenterWorld(checkCurrentCell);
         
-        if (Physics.OverlapSphere(checkCellCenter,1).Length > 0)
-        {
-            GameObject fillerFloor = floor;
-            fillerFloor.transform.position = checkCellCenter;
-            Instantiate(fillerFloor, tilemap.transform.parent);
-        }
+//        if (Physics.OverlapSphere(checkCellCenter,1).Length > 0)
+//        {
+//            GameObject fillerFloor = floor;
+//            fillerFloor.transform.position = checkCellCenter;
+//            GameObject tmp = Instantiate(fillerFloor, tilemap.transform.parent);
+//            tmp.transform.parent = tilemap.transform;
+//        }
 
         _quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
+        _quad.transform.parent = tilemap.transform;
         _quad.transform.eulerAngles = new Vector3(45.0f, 90.0f * _rotation, 0);
         _quad.transform.position = cellCenter;
         _quad.tag = "ground";
-        _quad.transform.parent = tilemap.transform;
+        _quad.transform.localScale = new Vector3(1f, 1f, 1f);
         _quad.GetComponent<MeshCollider>().material = physicMaterial;
     }
 
@@ -64,8 +66,9 @@ public class lemming_builder_job : MonoBehaviour
         Vector3Int currentCell = tilemap.WorldToCell(tmpPosition);
         Vector3 cellCenter = tilemap.GetCellCenterWorld(currentCell);
 
-        floor.transform.position = cellCenter;
         GameObject tile = Instantiate(floor, tilemap.transform.parent);
+        tile.transform.parent = tilemap.transform;
+        tile.transform.position = cellCenter;
         return (tile);
     }
 
@@ -73,8 +76,8 @@ public class lemming_builder_job : MonoBehaviour
     {
         if (transform.eulerAngles.y >= 180)
             _rotation = -1;
-        float xOffset = 3f * _rotation;
-        float yOffset = 1f;
+        float xOffset = 0.4f * _rotation;
+        float yOffset = 0.2f;
         InitQuad();
 
         for (var i = 0; i < nbFloorTiles; i++)
@@ -82,7 +85,7 @@ public class lemming_builder_job : MonoBehaviour
             GameObject tile = InitGroundTiles(xOffset, yOffset);
             if (i == 1)
                 tile.gameObject.name = "built_floor";
-            xOffset += _rotation;
+            xOffset += 0.2f * _rotation;
         }
     }
 }

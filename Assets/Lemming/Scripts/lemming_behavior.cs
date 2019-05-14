@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class lemming_behavior : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class lemming_behavior : MonoBehaviour
 
     
     //Jobs
+    public Tilemap Tilemap;
+    
     public lemming_builder_job BuilderJob;
     
     public lemming_mining_job MiningJob;
@@ -63,6 +66,7 @@ public class lemming_behavior : MonoBehaviour
         anim = GetComponent<Animator>();
         caps_col = GetComponent<CapsuleCollider>();
         old_y = transform.position.y;
+        BuilderJob.tilemap = Tilemap;
     }
 
     // Update is called once per frame
@@ -178,7 +182,7 @@ public class lemming_behavior : MonoBehaviour
             if(!gameObject.CompareTag("wall"))
                 Physics.IgnoreCollision(col.collider, caps_col);
         }
-        else if (col.gameObject.CompareTag("ground") || col.transform.parent.gameObject.CompareTag("ground"))
+        else if (col.gameObject.CompareTag("ground"))
         {
             if (col.gameObject.transform.name == "built_floor")
             {
@@ -200,7 +204,7 @@ public class lemming_behavior : MonoBehaviour
             }
             old_y = transform.position.y;
         }
-        else if (col.gameObject.CompareTag("wall") || col.transform.parent.gameObject.CompareTag("wall"))
+        else if (col.gameObject.CompareTag("wall"))
         {
             has_to_turn = true;
         }
@@ -209,7 +213,7 @@ public class lemming_behavior : MonoBehaviour
 
     void OnCollisionExit(Collision col)
     {
-        if (col.gameObject.CompareTag("ground") || col.transform.parent.gameObject.CompareTag("ground"))
+        if (col.gameObject.CompareTag("ground"))
         {
             touching_ground--;
             if (touching_ground <= 0)
