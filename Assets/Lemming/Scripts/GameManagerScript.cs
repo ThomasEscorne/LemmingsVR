@@ -115,17 +115,21 @@ public class GameManagerScript : MonoBehaviour
                         GameObject item = Instantiate(UmbrellaPrefab) as GameObject;
                         target.GetComponent<lemming_behavior>().give_object(item.GetComponent<LemmingObject>());
                     }
+                    else if (heldObjType == "hammer")
+                    {
+                        //GameObject item = Instantiate(HammerPrefab) as GameObject;
+                        Debug.Log("hammer");
+                        target.GetComponent<lemming_behavior>().Build();
+                    }
+                    else if (heldObjType == "pickaxe")
+                    {
+                        //GameObject item = Instantiate(PickaxePrefab) as GameObject;
+                        Debug.Log("pickaxe");
+
+                        target.GetComponent<lemming_behavior>().Mine();
+                    }
                 }
-                else if (heldObjType == "hammer")
-                {
-                    //GameObject item = Instantiate(HammerPrefab) as GameObject;
-                    target.GetComponent<lemming_behavior>().is_building = true;
-                }
-                else if (heldObjType == "pickaxe")
-                {
-                    //GameObject item = Instantiate(PickaxePrefab) as GameObject;
-                    target.GetComponent<lemming_behavior>().is_mining = true;
-                }
+                
             }
         }
     }

@@ -120,6 +120,19 @@ public class lemming_behavior : MonoBehaviour
             set_attitude(Attitude.FALLING);
     }
 
+    public void Mine()
+    {
+        Debug.Log("Mine");
+
+        is_mining = true;
+    }
+
+    public void Build()
+    {
+        Debug.Log("Build");
+        is_building = true;
+    }
+
     IEnumerator Mining()
     {
         gameObject.transform.tag = "wall";

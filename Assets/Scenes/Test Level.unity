@@ -2935,30 +2935,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 180540129}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &180540153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 180540136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 362751dab3d80d94197e74b015122865, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftController: 1
-  rightController: 1
-  engageButton: 3
-  controlOptions: 1
-  directionMethod: 4
-  speedScale: 10
-  maxSpeed: 4
-  deceleration: 0.1
-  fallingDeceleration: 0.01
-  smartDecoupleThreshold: 30
-  sensitivity: 0.02
-  bodyPhysics: {fileID: 0}
 --- !u!1 &185690341
 GameObject:
   m_ObjectHideFlags: 0
@@ -9815,6 +9791,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 869361061}
   m_CullTransparentMesh: 0
+--- !u!1 &871223509 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 11235124862176213, guid: d8c379b606369a64895d2f93901388f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2135293207}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1839735485 &871223510
+Tilemap:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871223509}
+  m_Enabled: 1
+  m_Tiles: {}
+  m_AnimatedTiles: {}
+  m_TileAssetArray: []
+  m_TileSpriteArray: []
+  m_TileMatrixArray: []
+  m_TileColorArray: []
+  m_AnimationFrameRate: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Origin: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0, y: 0, z: 1}
+  m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
+  m_TileOrientation: 0
+  m_TileOrientationMatrix:
+    e00: 1
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 1
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
 --- !u!1 &871915836
 GameObject:
   m_ObjectHideFlags: 0
@@ -24712,6 +24731,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 3588723315083981041, guid: d8c379b606369a64895d2f93901388f4,
+        type: 3}
+      propertyPath: TilemapForLemming
+      value: 
+      objectReference: {fileID: 871223510}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8c379b606369a64895d2f93901388f4, type: 3}
 --- !u!4 &2135293208 stripped
