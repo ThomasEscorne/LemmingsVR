@@ -592,8 +592,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf95486aef7f624dae67a657281e265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GROUND: ground
+  WALL: wall
+  LEMMING: lemming
+  speed: 0.007
+  is_grounded: 0
+  touching_ground: 0
   has_to_die: 0
   old_y: 0
+  current_object: {fileID: 0}
+  IsADispenser: 0
+  IsStill: 0
+  direction: 1
+  Tilemap: {fileID: 0}
+  BuilderJob: {fileID: 0}
+  MiningJob: {fileID: 0}
+  nb_floors: 3
+  is_mining: 0
+  is_building: 0
 --- !u!75 &1090618206634847386
 ConstantForce:
   m_ObjectHideFlags: 0

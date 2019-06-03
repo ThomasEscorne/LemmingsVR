@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
-using UnityEngine;
-using Quaternion = UnityEngine.Quaternion;
+﻿using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
 public class lemming_mining_job : MonoBehaviour
@@ -56,21 +51,5 @@ public class lemming_mining_job : MonoBehaviour
             hit.transform.gameObject.tag = "wall";
         if (Physics.Raycast(positionToHit, transform.TransformDirection(Vector3.back) * 100, out hit))
             hit.transform.gameObject.tag = "wall";
-    }
-    
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        //Check that it is being run in Play Mode, so it doesn't try to draw this in Editor mode
-        //Draw a cube where the OverlapBox is (positioned where your GameObject is as well as a size)
-        var positionToMine = transform.position;
-
-        positionToMine.x += transform.localScale.x;
-        positionToMine.y -= 2;
-        //positionToMine.x += 2;
-        positionToMine.y -= 1;
-        
-        
-        Gizmos.DrawWireCube(positionToMine, transform.localScale);
     }
 }
