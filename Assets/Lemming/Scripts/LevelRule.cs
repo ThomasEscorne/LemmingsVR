@@ -6,6 +6,8 @@ public class LevelRule : MonoBehaviour
 {
     portal_end_behaviour[] listPortalEnd;
     lemming_spawner_behaviour[] listPortalStart;
+    public GameObject successScreen;
+    public GameObject defeatScreen;
     public int nbSafeWin = 1;
     public int nbDeathLoose = 1;
     public int nbToSpawn = 0;
@@ -30,6 +32,7 @@ public class LevelRule : MonoBehaviour
             nbSaved += listPortalEnd[i].lemmings_saved;
         if (nbSaved >= nbSafeWin)
             isWin = true;
+        successScreen.SetActive(true);
     }
 
     private void isGameLost(int leftToSpawn)
@@ -44,6 +47,7 @@ public class LevelRule : MonoBehaviour
                 lemmingsDead++;
         if (lemmingsDead >= nbDeathLoose)
             isLost = true;
+        defeatScreen.SetActive(true);
     }
 
     private void CheckSpawnerRoutine()
