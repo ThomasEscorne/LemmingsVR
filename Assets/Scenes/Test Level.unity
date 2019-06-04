@@ -873,8 +873,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef46101443a166c44905be5b7e6a34b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  successScreen: {fileID: 0}
-  defeatScreen: {fileID: 0}
+  successScreen: {fileID: 2059357554}
+  defeatScreen: {fileID: 910946606}
   nbSafeWin: 8
   nbDeathLoose: 1
   nbToSpawn: 0
