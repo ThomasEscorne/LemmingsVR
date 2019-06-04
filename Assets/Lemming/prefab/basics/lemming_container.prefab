@@ -66,6 +66,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6495448092522661362}
     m_Modifications:
+    - target: {fileID: 7920432470405920996, guid: 73eb3559ac049284499ba6a5c7d747bb,
+        type: 3}
+      propertyPath: m_Name
+      value: lemming
+      objectReference: {fileID: 0}
     - target: {fileID: 7920432470405948612, guid: 73eb3559ac049284499ba6a5c7d747bb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -130,11 +135,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.1038545
-      objectReference: {fileID: 0}
-    - target: {fileID: 7920432470405920996, guid: 73eb3559ac049284499ba6a5c7d747bb,
-        type: 3}
-      propertyPath: m_Name
-      value: lemming
       objectReference: {fileID: 0}
     - target: {fileID: 7920432470562191299, guid: 73eb3559ac049284499ba6a5c7d747bb,
         type: 3}

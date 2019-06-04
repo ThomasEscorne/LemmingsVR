@@ -21,6 +21,7 @@ public class lemming_behavior : MonoBehaviour
     public bool IsADispenser = false;
     public bool IsStill = false;
     public int direction = 1;
+    private AudioManager _audioManager;
 
     
     //Jobs
@@ -67,6 +68,8 @@ public class lemming_behavior : MonoBehaviour
         caps_col = GetComponent<CapsuleCollider>();
         old_y = transform.position.y;
         BuilderJob.tilemap = Tilemap;
+        _audioManager = FindObjectOfType<AudioManager>();
+        _audioManager.Play("LemmingSpawn");
     }
 
     // Update is called once per frame
@@ -142,6 +145,7 @@ public class lemming_behavior : MonoBehaviour
         mining_started = false;
         is_mining = false;
         gameObject.transform.tag = "lemming";
+        _audioManager.Play("Mine");
         //set_attitude(Attitude.WALKING);
 //        yield return new WaitForSeconds(1);
 //        MiningJob.SetFacingWallTag();
@@ -240,6 +244,7 @@ public class lemming_behavior : MonoBehaviour
 
     IEnumerator Die()
     {
+        _audioManager.Play("LemmingDeath");
         set_attitude(Attitude.DYING);
         //gameObject.GetComponent<CapsuleCollider>().enabled = false;
         yield return new WaitForSeconds(5);
@@ -260,6 +265,7 @@ public class lemming_behavior : MonoBehaviour
         if (is_grounded == true)
         {
             anim.SetBool("is_finishing", true);
+            _audioManager.Play("LemmingSurvive");
             yield return new WaitForSeconds(1f);
             OnDestroy();
             Destroy(gameObject);
