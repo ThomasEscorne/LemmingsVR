@@ -20,7 +20,7 @@ public class LevelRule : MonoBehaviour
     delegate void SpawnLevel();
     private List<SpawnLevel> list;
     public bool waitNext;
-    private IndicatorLemmingsBehaviour indicatorGui;
+    public IndicatorLemmingsBehaviour indicatorGui;
 
     void Start()
     {
@@ -30,9 +30,14 @@ public class LevelRule : MonoBehaviour
         list.Add(lvlHandler.StartLevel2);
         list.Add(lvlHandler.StartLevel3);
         list.Add(lvlHandler.StartLevel4);
-        indicatorGui = FindObjectOfType<IndicatorLemmingsBehaviour>();
         if (indicatorGui != null)
+        {
+            Debug.Log("oui");
+
             indicatorGui.gameObject.SetActive(false);
+        }
+        else
+            Debug.Log("non");
     }
     
     public void SetSpawner()
