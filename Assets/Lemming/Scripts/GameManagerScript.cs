@@ -10,6 +10,8 @@ public class GameManagerScript : MonoBehaviour
     public GameObject UmbrellaPrefab;
     public GameObject HammerModel;
     public GameObject PickaxeModel;
+    public GameObject JetpackModel;
+    public GameObject StopsignModel;
     public VRTK_ControllerEvents leftControllerEvents;
     public VRTK_ControllerEvents rightControllerEvents;
 
@@ -66,6 +68,32 @@ public class GameManagerScript : MonoBehaviour
                 Debug.Log("Pickaxe spawn in your hand");
                 heldObjType = "pickaxe";
                 heldObj = Instantiate(PickaxeModel) as GameObject;
+                heldObj.transform.parent = GameObject.Find(lastTouchpadClick).transform;
+                currentHolding = lastTouchpadClick;
+                heldObj.transform.localPosition = new Vector3(0.014f, 0.0065f, 0.0934f);
+                heldObj.transform.localEulerAngles = new Vector3(0, -90, 0);
+                heldObj.transform.localScale = new Vector3(1f, 1f, 1f);
+                isHolding = true;
+            }
+
+            if (target.name == "JetpackSpawner")
+            {
+                Debug.Log("Jetpack spawn in your hand");
+                heldObjType = "jetpack";
+                heldObj = Instantiate(JetpackModel) as GameObject;
+                heldObj.transform.parent = GameObject.Find(lastTouchpadClick).transform;
+                currentHolding = lastTouchpadClick;
+                heldObj.transform.localPosition = new Vector3(0.014f, 0.0065f, 0.0934f);
+                heldObj.transform.localEulerAngles = new Vector3(0, -90, 0);
+                heldObj.transform.localScale = new Vector3(1f, 1f, 1f);
+                isHolding = true;
+            }
+
+            if (target.name == "StopsignSpawner")
+            {
+                Debug.Log("Stopsign spawn in your hand");
+                heldObjType = "stopsign";
+                heldObj = Instantiate(StopsignModel) as GameObject;
                 heldObj.transform.parent = GameObject.Find(lastTouchpadClick).transform;
                 currentHolding = lastTouchpadClick;
                 heldObj.transform.localPosition = new Vector3(0.014f, 0.0065f, 0.0934f);
