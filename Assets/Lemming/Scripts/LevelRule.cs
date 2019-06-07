@@ -12,17 +12,63 @@ public class LevelRule : MonoBehaviour
     public int nbDeathLoose = 1;
     public int nbToSpawn = 0;
     private bool allSpawned = false;
-    public bool isLost = false;
-    public bool isWin = false;
+    public bool isLost;
+    public bool isWin;
     private int nbSaved = 0;
+    public int currentLvl;
+    public LevelHandler lvlHandler;
+    delegate void SpawnLevel();
+    List<SpawnLevel> list;
+    public bool waitNext;
 
     void Start()
     {
+        waitNext = true;
+        list = new List<SpawnLevel>();
+        list.Add(lvlHandler.StartLevel1);
+        list.Add(lvlHandler.StartLevel2);
+        list.Add(lvlHandler.StartLevel3);
+        list.Add(lvlHandler.StartLevel4);
+    }
+    
+    public void SetSpawner()
+    {
+        nbToSpawn = 0;
         listPortalStart = FindObjectsOfType<lemming_spawner_behaviour>();
         for (int i = 0; i < listPortalStart.Length; i++)
             nbToSpawn += listPortalStart[i].number_of_lemmings;
+        isWin = false;
+        isLost = false;
+        allSpawned = false;
+        waitNext = false;
     }
-    
+
+    public void RetryLevel()
+    {
+        lemming_behavior[] listLemming;
+
+        listLemming = FindObjectsOfType<lemming_behavior>();
+        for (int i = 0; i < listLemming.Length; i++)
+            Destroy(listLemming[i].gameObject);
+        defeatScreen.SetActive(false);
+        list[currentLvl]();
+        waitNext = true;
+    }
+
+    public void NextLevel()
+    {
+        lemming_behavior[] listLemming;
+
+        listLemming = FindObjectsOfType<lemming_behavior>();
+        for (int i = 0; i < listLemming.Length; i++)
+            Destroy(listLemming[i].gameObject);
+        successScreen.SetActive(false);
+        currentLvl++;
+        list[currentLvl]();
+        isLost = false;
+        isWin = false;
+    }
+
     private void isGameWon()
     {
         nbSaved = 0;
@@ -33,7 +79,10 @@ public class LevelRule : MonoBehaviour
         if (nbSaved >= nbSafeWin)
             isWin = true;
         if (isWin)
+        {
             successScreen.SetActive(true);
+            waitNext = true;
+        }
     }
 
     private void isGameLost(int leftToSpawn)
@@ -43,19 +92,23 @@ public class LevelRule : MonoBehaviour
 
         listLemming = FindObjectsOfType<lemming_behavior>();
         lemmingsDead = nbToSpawn - (listLemming.Length + leftToSpawn + nbSaved);
+        Debug.Log("Left to spawn = " + leftToSpawn + " listLemming.Length = " + listLemming.Length + " nbToSpawn = " + nbToSpawn + " nbSaved = " + nbSaved);
         for (int i = 0; i < listLemming.Length; i++)
             if (listLemming[i].IsStill || listLemming[i].IsADispenser)
                 lemmingsDead++;
         if (lemmingsDead >= nbDeathLoose)
             isLost = true;
         if (isLost)
+        {
             defeatScreen.SetActive(true);
+            waitNext = true;
+        }
     }
 
     private void CheckSpawnerRoutine()
     {
         int leftToSpawn = 0;
-
+        
         listPortalStart = FindObjectsOfType<lemming_spawner_behaviour>();
         for (int i = 0; i < listPortalStart.Length; i++)
             leftToSpawn += listPortalStart[i].number_of_lemmings;
@@ -66,6 +119,8 @@ public class LevelRule : MonoBehaviour
 
     void Update()
     {
+        if (waitNext)
+            return;
         isGameWon();
         if (!allSpawned)
             CheckSpawnerRoutine();
