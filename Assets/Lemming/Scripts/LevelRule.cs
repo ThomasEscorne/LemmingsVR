@@ -32,7 +32,8 @@ public class LevelRule : MonoBehaviour
             nbSaved += listPortalEnd[i].lemmings_saved;
         if (nbSaved >= nbSafeWin)
             isWin = true;
-        successScreen.SetActive(true);
+        if (isWin)
+            successScreen.SetActive(true);
     }
 
     private void isGameLost(int leftToSpawn)
@@ -47,7 +48,8 @@ public class LevelRule : MonoBehaviour
                 lemmingsDead++;
         if (lemmingsDead >= nbDeathLoose)
             isLost = true;
-        defeatScreen.SetActive(true);
+        if (isLost)
+            defeatScreen.SetActive(true);
     }
 
     private void CheckSpawnerRoutine()
