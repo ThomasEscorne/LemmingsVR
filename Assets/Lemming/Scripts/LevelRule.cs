@@ -31,13 +31,7 @@ public class LevelRule : MonoBehaviour
         list.Add(lvlHandler.StartLevel3);
         list.Add(lvlHandler.StartLevel4);
         if (indicatorGui != null)
-        {
-            Debug.Log("oui");
-
             indicatorGui.gameObject.SetActive(false);
-        }
-        else
-            Debug.Log("non");
     }
     
     public void SetSpawner()
@@ -80,8 +74,7 @@ public class LevelRule : MonoBehaviour
         for (int i = 0; i < listLemming.Length; i++)
             Destroy(listLemming[i].gameObject);
         successScreen.SetActive(false);
-        currentLvl++;
-        list[currentLvl]();
+        list[currentLvl + 1]();
         isLost = false;
         isWin = false;
     }
