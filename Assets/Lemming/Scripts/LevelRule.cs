@@ -106,7 +106,6 @@ public class LevelRule : MonoBehaviour
 
         listLemming = FindObjectsOfType<lemming_behavior>();
         lemmingsDead = nbToSpawn - (listLemming.Length + leftToSpawn + nbSaved);
-        Debug.Log("Left to spawn = " + leftToSpawn + " listLemming.Length = " + listLemming.Length + " nbToSpawn = " + nbToSpawn + " nbSaved = " + nbSaved);
         for (int i = 0; i < listLemming.Length; i++)
             if (listLemming[i].IsStill || listLemming[i].IsADispenser)
                 lemmingsDead++;
