@@ -24,7 +24,7 @@ public class MenuController : MonoBehaviour
             Destroy(gameObject);
 
         lastLevel = 0;
-
+        RefreshLevel();
         DontDestroyOnLoad(gameObject);
     }
 
