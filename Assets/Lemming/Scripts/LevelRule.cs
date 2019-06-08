@@ -94,6 +94,7 @@ public class LevelRule : MonoBehaviour
             isWin = true;
         if (isWin)
         {
+            MenuController.Instance.PassLevel(currentLvl + 1);
             successScreen.SetActive(true);
             waitNext = true;
             if (indicatorGui != null)
