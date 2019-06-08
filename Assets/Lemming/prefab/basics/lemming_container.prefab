@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck:
   - ground
+  - wall
 --- !u!114 &6369356419784398501
 MonoBehaviour:
   m_ObjectHideFlags: 0
