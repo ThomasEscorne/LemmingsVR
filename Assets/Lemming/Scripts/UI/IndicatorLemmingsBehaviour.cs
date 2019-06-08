@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class IndicatorLemmingsBehaviour : MonoBehaviour
 {
-    private int nbDead;
-    private int nbSaved;
-    private int nbToSpawn;
-    private int nbSpawned;
+    private int nbDead = 10000;
+    private int nbSaved = 10000;
+    private int nbToSpawn = 10000;
+    private int nbSpawned = 10000;
     public TextMesh deathText;
     public TextMesh saveText;
     public TextMesh toSpawnText;

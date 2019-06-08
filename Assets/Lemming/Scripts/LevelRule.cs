@@ -20,7 +20,7 @@ public class LevelRule : MonoBehaviour
     delegate void SpawnLevel();
     private List<SpawnLevel> list;
     public bool waitNext;
-    private IndicatorLemmingsBehaviour indicatorGui;
+    public IndicatorLemmingsBehaviour indicatorGui;
 
     void Start()
     {
@@ -30,7 +30,6 @@ public class LevelRule : MonoBehaviour
         list.Add(lvlHandler.StartLevel2);
         list.Add(lvlHandler.StartLevel3);
         list.Add(lvlHandler.StartLevel4);
-        indicatorGui = FindObjectOfType<IndicatorLemmingsBehaviour>();
         if (indicatorGui != null)
             indicatorGui.gameObject.SetActive(false);
     }
@@ -75,8 +74,7 @@ public class LevelRule : MonoBehaviour
         for (int i = 0; i < listLemming.Length; i++)
             Destroy(listLemming[i].gameObject);
         successScreen.SetActive(false);
-        currentLvl++;
-        list[currentLvl]();
+        list[currentLvl + 1]();
         isLost = false;
         isWin = false;
     }
@@ -109,7 +107,6 @@ public class LevelRule : MonoBehaviour
 
         listLemming = FindObjectsOfType<lemming_behavior>();
         lemmingsDead = nbToSpawn - (listLemming.Length + leftToSpawn + nbSaved);
-        Debug.Log("Left to spawn = " + leftToSpawn + " listLemming.Length = " + listLemming.Length + " nbToSpawn = " + nbToSpawn + " nbSaved = " + nbSaved);
         for (int i = 0; i < listLemming.Length; i++)
             if (listLemming[i].IsStill || listLemming[i].IsADispenser)
                 lemmingsDead++;
