@@ -48,6 +48,8 @@ public class lemming_behavior : MonoBehaviour
     private bool standing_on_built_floor = false;
 
     private bool started_to_die = false;
+
+    public float jumpPower = 6f;
     
     public enum Attitude
     {
@@ -130,17 +132,21 @@ public class lemming_behavior : MonoBehaviour
         }
         else
             set_attitude(Attitude.FALLING);
-        
-        
+             
         fwd = transform.TransformDirection(Vector3.forward);
         rayStart = transform.position;
         rayStart.y += 0.25f;
             
         Debug.DrawRay(rayStart, fwd * 0.1f, Color.green);
         RaycastHit objectHit;
+        
         if (Physics.Raycast(rayStart, fwd, out objectHit, 0.1f))
         {
+            //Debug.Log("raycast tag : " + objectHit.transform.tag);
             //do something if hit object ie
+            
+            
+            
             if (objectHit.transform.CompareTag("ground"))
             {
                 Debug.Log("> has to turn");
@@ -220,6 +226,7 @@ public class lemming_behavior : MonoBehaviour
             Physics.IgnoreCollision(col.collider, caps_col);
             return;
         }
+
         if (col.gameObject.tag == "lemming")
         {
             if (IsADispenser)
@@ -268,8 +275,7 @@ public class lemming_behavior : MonoBehaviour
                 StartCoroutine("DieFromFall");
             }
         }
-    }
-
+    
     IEnumerator Die()
     {
         _audioManager.Play("LemmingDeath");

@@ -28,16 +28,4 @@ public class lemming_mining_job : MonoBehaviour
             }
         }
     }
-
-    public void SetFacingWallTag()
-    {
-        RaycastHit hit;
-        var positionToHit = transform.position;
-
-        positionToHit.y++;
-        if (Physics.Raycast(positionToHit, transform.TransformDirection(Vector3.forward) * 100, out hit))
-            hit.transform.gameObject.tag = "wall";
-        if (Physics.Raycast(positionToHit, transform.TransformDirection(Vector3.back) * 100, out hit))
-            hit.transform.gameObject.tag = "wall";
-    }
 }
