@@ -29,6 +29,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemap: {fileID: 0}
   floor: {fileID: 795379951187591431, guid: 0fdb4c11a028c874ba2ec7aacf8390c1, type: 3}
+--- !u!114 &644195247229223607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584937518566754710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2be954ff682543418b07d059fd37853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 6
 --- !u!1 &5659635981410450014
 GameObject:
   m_ObjectHideFlags: 0
