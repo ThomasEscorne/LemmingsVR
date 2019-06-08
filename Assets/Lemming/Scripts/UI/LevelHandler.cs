@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelHandler : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class LevelHandler : MonoBehaviour
     public GameObject Menu;
     private LevelRule levelRule;
     private GameObject sceneObject;
+
+    
 
     public void Start()
     {
