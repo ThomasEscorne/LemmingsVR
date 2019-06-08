@@ -47,30 +47,30 @@ MonoBehaviour:
   - name: MainMusic
     clip: {fileID: 8300000, guid: d1636bdeb142c0344991aada35b48215, type: 3}
     volume: 1
-    pitch: 0
+    pitch: 1
     source: {fileID: 0}
     loop: 1
   - name: LemmingSpawn
     clip: {fileID: 8300000, guid: daf18d61a0148ab4590a04e24a3be659, type: 3}
     volume: 1
-    pitch: 0
+    pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: LemmingDeath
     clip: {fileID: 8300000, guid: f60fee7d358070443946bafa6b087c65, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: LemmingSurvive
     clip: {fileID: 8300000, guid: 9e40988412b1242448098699d9da761a, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: Mine
     clip: {fileID: 8300000, guid: 78cefd30cc52dc642b0ba280342309f4, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
     loop: 0
