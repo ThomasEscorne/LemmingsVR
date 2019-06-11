@@ -83,7 +83,7 @@ public class GameManagerScript : MonoBehaviour
                 heldObj = Instantiate(JetpackModel) as GameObject;
                 heldObj.transform.parent = GameObject.Find(lastTouchpadClick).transform;
                 currentHolding = lastTouchpadClick;
-                heldObj.transform.localPosition = new Vector3(0.014f, 0.0065f, 0.0934f);
+                heldObj.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
                 heldObj.transform.localEulerAngles = new Vector3(0, -90, 0);
                 heldObj.transform.localScale = new Vector3(1f, 1f, 1f);
                 isHolding = true;
@@ -96,9 +96,9 @@ public class GameManagerScript : MonoBehaviour
                 heldObj = Instantiate(StopsignModel) as GameObject;
                 heldObj.transform.parent = GameObject.Find(lastTouchpadClick).transform;
                 currentHolding = lastTouchpadClick;
-                heldObj.transform.localPosition = new Vector3(0.014f, 0.0065f, 0.0934f);
-                heldObj.transform.localEulerAngles = new Vector3(0, -90, 0);
-                heldObj.transform.localScale = new Vector3(1f, 1f, 1f);
+                heldObj.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
+                heldObj.transform.localEulerAngles = new Vector3(0, -90, -60);
+                heldObj.transform.localScale = new Vector3(0.006f, 0.006f, 0.006f);
                 isHolding = true;
             }
 
