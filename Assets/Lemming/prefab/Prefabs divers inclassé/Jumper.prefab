@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4116869990295680332}
   - component: {fileID: 4116869990295680333}
   - component: {fileID: 4116869990295680330}
-  - component: {fileID: 6213431093955052955}
+  - component: {fileID: 3138022827720930496}
   m_Layer: 0
   m_Name: Jumper
   m_TagString: Jumper
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 92623b154c75edf4e84251402d095851, type: 2}
+  - {fileID: 2100000, guid: 241832a93a3e36f47a9cc2fc182529e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,7 +92,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6213431093955052955
+--- !u!114 &3138022827720930496
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4116869990295680331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0ccab4253f17dd4a96b8ed479e610cd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7863d2838e75c8840b78efe7b4575db0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   forceX: 30

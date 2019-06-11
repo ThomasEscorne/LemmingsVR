@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Valve.VR;
 
 public class lemming_behavior : MonoBehaviour
 {
@@ -22,27 +23,34 @@ public class lemming_behavior : MonoBehaviour
     public bool IsStill = false;
     public int direction = 1;
     private AudioManager _audioManager;
+    Vector3 fwd;
+    Vector3 rayStart;
 
-    
+
+
     //Jobs
     public Tilemap Tilemap;
-    
+
     public lemming_builder_job BuilderJob;
-    
+
     public lemming_mining_job MiningJob;
-        
+
     public int nb_floors = 3;
-    
+
     public bool is_mining = false;
-    
+
     private bool mining_started = false;
-    
+
     public bool is_building = false;
-        
+
     private bool building_started = false;
 
     private bool standing_on_built_floor = false;
-    
+
+    private bool started_to_die = false;
+
+    public float jumpPower = 6f;
+
     public enum Attitude
     {
         FALLING,
@@ -77,8 +85,11 @@ public class lemming_behavior : MonoBehaviour
     {
         if (has_to_die == true)
         {
-        
-            StartCoroutine("Die");
+            if (!started_to_die)
+            {
+                StartCoroutine("Die");
+                started_to_die = true;
+            }
         }
         else if (is_building)
         {
@@ -121,6 +132,27 @@ public class lemming_behavior : MonoBehaviour
         }
         else
             set_attitude(Attitude.FALLING);
+
+        fwd = transform.TransformDirection(Vector3.forward);
+        rayStart = transform.position;
+        rayStart.y += 0.25f;
+
+        Debug.DrawRay(rayStart, fwd * 0.1f, Color.green);
+        RaycastHit objectHit;
+
+        if (Physics.Raycast(rayStart, fwd, out objectHit, 0.1f))
+        {
+            //Debug.Log("raycast tag : " + objectHit.transform.tag);
+            //do something if hit object ie
+
+
+
+            if (objectHit.transform.CompareTag("ground"))
+            {
+                Debug.Log("> has to turn");
+                has_to_turn = true;
+            }
+        }
     }
 
     public void Mine()
@@ -150,7 +182,7 @@ public class lemming_behavior : MonoBehaviour
 //        yield return new WaitForSeconds(1);
 //        MiningJob.SetFacingWallTag();
     }
-    
+
     //TODO: How many layers to create
     //TODO: Rotation depending on player
     IEnumerator Building()
@@ -174,6 +206,7 @@ public class lemming_behavior : MonoBehaviour
             is_building = false;
             standing_on_built_floor = false;
         }
+
         set_attitude(Attitude.WALKING);
         is_building = false;
         building_started = false;
@@ -187,16 +220,19 @@ public class lemming_behavior : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
+        var relativePosition = transform.InverseTransformPoint(col.contacts[0].point);
+
         if (col.gameObject.tag == "uncolidable")
         {
             Physics.IgnoreCollision(col.collider, caps_col);
             return;
         }
+
         if (col.gameObject.tag == "lemming")
         {
             if (IsADispenser)
                 current_object.GiveOne(col.gameObject.GetComponent<lemming_behavior>());
-            if(!gameObject.CompareTag("wall"))
+            if (!gameObject.CompareTag("wall"))
                 Physics.IgnoreCollision(col.collider, caps_col);
         }
         else if (col.gameObject.CompareTag("ground"))
@@ -206,6 +242,7 @@ public class lemming_behavior : MonoBehaviour
                 standing_on_built_floor = true;
                 col.gameObject.transform.name = "old_built_floor";
             }
+
             touching_ground++;
             is_grounded = true;
             StopCoroutine("DieFromFall");
@@ -219,6 +256,7 @@ public class lemming_behavior : MonoBehaviour
                     has_to_die = true;
                 }
             }
+
             old_y = transform.position.y;
         }
         else if (col.gameObject.CompareTag("wall"))

@@ -3,7 +3,24 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ExcludeTeleport
+  - SceneObject
+  - uncolidable
+  - LevelRule
+  - Level
+  - buildable_tilemap
+  - ground
+  - wall
+  - lemming
+  - SnapCube
+  - Water
+  - Snow
+  - Container
+  - Jumper
+  - Ice
+  - Fire
+  - Elevator
   layers:
   - Default
   - TransparentFX

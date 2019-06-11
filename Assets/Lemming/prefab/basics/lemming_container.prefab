@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3273196225261023332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584937518566754710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2be954ff682543418b07d059fd37853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 1
 --- !u!114 &6091276562393850131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14,6 +27,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagToCheck:
   - ground
+  - wall
 --- !u!114 &6369356419784398501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,7 +53,7 @@ GameObject:
   - component: {fileID: 6495448092522661362}
   m_Layer: 0
   m_Name: lemming_container
-  m_TagString: Untagged
+  m_TagString: Container
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,6 +169,11 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 7920432470562191300, guid: 73eb3559ac049284499ba6a5c7d747bb,
+        type: 3}
+      propertyPath: jumpPower
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1090618206634847386, guid: 73eb3559ac049284499ba6a5c7d747bb,
         type: 3}

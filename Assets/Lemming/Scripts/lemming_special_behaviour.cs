@@ -16,7 +16,7 @@ public class lemming_special_behaviour : MonoBehaviour
 
     void OnCollisionExit(Collision col)
     {
-        if (col.gameObject.CompareTag("Ice") || col.gameObject.CompareTag("Jumper") || col.gameObject.CompareTag("Destructive"))
+        if (col.gameObject.CompareTag("Ice") || col.gameObject.CompareTag("Jumper"))
         {
             lemming.touching_ground--;
             if (lemming.touching_ground <= 0)
@@ -25,33 +25,18 @@ public class lemming_special_behaviour : MonoBehaviour
                 lemming.old_y = transform.position.y;
                 lemming.StartCoroutine("DieFromFall");
             }
-            if (col.gameObject.CompareTag("Destructive"))
-                col.gameObject.GetComponent<Destructive_block_behaviour>().addPerson();
-
         }
-
     }
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.CompareTag("Destructive") || col.gameObject.CompareTag("Ice"))
+        if (col.gameObject.CompareTag("Ice"))
         {
             lemming.touching_ground++;
             lemming.is_grounded = true;
             lemming.StopCoroutine("DieFromFall");
             if (transform.position.y < lemming.old_y - 5)
-            {
-                if (lemming.current_object && lemming.current_object._name == "umbrella")
-                    lemming.loose_object();
-                else
-                {
-                    lemming.set_attitude(lemming_behavior.Attitude.DYING);
-                    lemming.has_to_die = true;
-                }
-            }
-            lemming.old_y = transform.position.y;
-            if (col.gameObject.CompareTag("Destructive"))
-                col.gameObject.GetComponent<Destructive_block_behaviour>().substractPerson();
+                lemming.has_to_die = true;
         }
         else if (col.gameObject.CompareTag("Jumper"))
         {
@@ -82,7 +67,6 @@ public class lemming_special_behaviour : MonoBehaviour
             if (lemming.speed < 0.025f)
                 lemming.speed = 0.025f;
         }
-
     }
     
 }
