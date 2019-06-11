@@ -2681,7 +2681,6 @@ GameObject:
   - component: {fileID: 176582145}
   - component: {fileID: 176582144}
   - component: {fileID: 176582146}
-  - component: {fileID: 176582147}
   m_Layer: 0
   m_Name: '[VRTK_SDKManager]'
   m_TagString: Untagged
@@ -2746,14 +2745,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceOculusFloorLevel: 1
---- !u!81 &176582147
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176582143}
-  m_Enabled: 1
 --- !u!1 &177835826
 GameObject:
   m_ObjectHideFlags: 0
@@ -25477,13 +25468,13 @@ PrefabInstance:
         type: 3}
       propertyPath: LevelList.Array.data[1]
       value: 
-      objectReference: {fileID: 3940053575151292492, guid: 9514d92c0f742174dbe8f5d650a9ef2e,
+      objectReference: {fileID: 4225265733952243695, guid: 0227038a535ae0b46b276fdeb176158c,
         type: 3}
     - target: {fileID: 4144411363024803890, guid: 159b44bf6d21816489d32a7b71d169c4,
         type: 3}
       propertyPath: LevelList.Array.data[2]
       value: 
-      objectReference: {fileID: 3940053575151292492, guid: 9514d92c0f742174dbe8f5d650a9ef2e,
+      objectReference: {fileID: 959544627902274348, guid: 4d768356a3738b54485a056b7e57de97,
         type: 3}
     - target: {fileID: 4144411363024803890, guid: 159b44bf6d21816489d32a7b71d169c4,
         type: 3}
