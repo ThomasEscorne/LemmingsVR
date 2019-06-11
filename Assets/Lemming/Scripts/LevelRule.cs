@@ -6,6 +6,7 @@ public class LevelRule : MonoBehaviour
 {
     portal_end_behaviour[] listPortalEnd;
     lemming_spawner_behaviour[] listPortalStart;
+    public GameObject Canvas;
     public GameObject successScreen;
     public GameObject defeatScreen;
     public int nbSafeWin = 1;
@@ -93,6 +94,7 @@ public class LevelRule : MonoBehaviour
         if (isWin)
         {
             MenuController.Instance.PassLevel(currentLvl + 1);
+            Canvas.SetActive(true);
             successScreen.SetActive(true);
             waitNext = true;
             if (indicatorGui != null)
@@ -120,6 +122,7 @@ public class LevelRule : MonoBehaviour
             isLost = true;
         if (isLost)
         {
+            Canvas.SetActive(true);
             defeatScreen.SetActive(true);
             waitNext = true;
             if (indicatorGui != null)

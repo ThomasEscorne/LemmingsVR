@@ -8,6 +8,7 @@ public class LevelHandler : MonoBehaviour
     public GameObject LevelMenu;
     public GameObject[] LevelList;
     public GameObject Menu;
+    public GameObject Canvas;
     private LevelRule levelRule;
     private GameObject sceneObject;
 
@@ -61,6 +62,7 @@ public class LevelHandler : MonoBehaviour
             for (int i = 0; i<tmpLevel.Length; i++)
                 Destroy(tmpLevel[i]);
         LevelMenu.SetActive(false);
+        Canvas.SetActive(false);
         Instantiate(Level, sceneObject.transform);
         levelRule.SetSpawner();
     }
