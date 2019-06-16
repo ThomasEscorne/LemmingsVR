@@ -10316,6 +10316,11 @@ PrefabInstance:
       propertyPath: Canvas
       value: 
       objectReference: {fileID: 1004852519}
+    - target: {fileID: 5469700596828071383, guid: b3287be4975133c448d954fd4f545f47,
+        type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 773978200}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3287be4975133c448d954fd4f545f47, type: 3}
 --- !u!4 &903005829 stripped
@@ -25593,12 +25598,12 @@ PrefabInstance:
     - target: {fileID: 5534819218838611311, guid: 159b44bf6d21816489d32a7b71d169c4,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2694921671323636441, guid: 159b44bf6d21816489d32a7b71d169c4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 159b44bf6d21816489d32a7b71d169c4, type: 3}
