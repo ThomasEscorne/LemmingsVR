@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelRule : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class LevelRule : MonoBehaviour
     public GameObject Canvas;
     public GameObject successScreen;
     public GameObject defeatScreen;
+    public Text scoreText;
     public int nbSafeWin = 1;
     public int nbDeathLoose = 1;
     private int nbSaved = 0;
     public int nbToSpawn = 0;
+    public int score = 0;
     private bool allSpawned = false;
     public bool isLost;
     public bool isWin;
@@ -99,6 +102,7 @@ public class LevelRule : MonoBehaviour
             waitNext = true;
             if (indicatorGui != null)
                 indicatorGui.gameObject.SetActive(false);
+            scoreText.text = "Score: " + score;
         }
     }
 
@@ -146,6 +150,8 @@ public class LevelRule : MonoBehaviour
     {
         if (waitNext)
             return;
+        if (score != 0)
+            score--;
         isGameWon();
         if (!allSpawned)
             CheckSpawnerRoutine();

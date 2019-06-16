@@ -26,6 +26,7 @@ public class LevelHandler : MonoBehaviour
         levelRule.nbSafeWin = 5;
         levelRule.nbDeathLoose = 6;
         levelRule.currentLvl = 0;
+        levelRule.score = 3400;
     }
 
     public void StartLevel2()
@@ -34,6 +35,7 @@ public class LevelHandler : MonoBehaviour
         levelRule.nbSafeWin = 5;
         levelRule.nbDeathLoose = 6;
         levelRule.currentLvl = 1;
+        levelRule.score = 6000;
     }
 
     public void StartLevel3()
@@ -42,6 +44,7 @@ public class LevelHandler : MonoBehaviour
         levelRule.nbSafeWin = 5;
         levelRule.nbDeathLoose = 6;
         levelRule.currentLvl = 2;
+        levelRule.score = 7000;
     }
 
 
@@ -51,6 +54,7 @@ public class LevelHandler : MonoBehaviour
         levelRule.nbSafeWin = 5;
         levelRule.nbDeathLoose = 6;
         levelRule.currentLvl = 3;
+        levelRule.score = 8000;
     }
 
     IEnumerator StartLevel(GameObject Level)
