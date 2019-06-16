@@ -11,7 +11,9 @@ public class GameManagerScript : MonoBehaviour
     public GameObject HammerModel;
     public GameObject PickaxeModel;
     public GameObject JetpackModel;
+    public GameObject JetPackPrefab;
     public GameObject StopsignModel;
+    public GameObject StopsignPrefab;
     public VRTK_ControllerEvents leftControllerEvents;
     public VRTK_ControllerEvents rightControllerEvents;
 
@@ -83,8 +85,8 @@ public class GameManagerScript : MonoBehaviour
                 heldObj = Instantiate(JetpackModel) as GameObject;
                 heldObj.transform.parent = GameObject.Find(lastTouchpadClick).transform;
                 currentHolding = lastTouchpadClick;
-                heldObj.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
-                heldObj.transform.localEulerAngles = new Vector3(0, -90, 0);
+                heldObj.transform.localPosition = new Vector3(0.013f, 0f, 0.03f);
+                heldObj.transform.localEulerAngles = new Vector3(0, 0, 0);
                 heldObj.transform.localScale = new Vector3(1f, 1f, 1f);
                 isHolding = true;
             }
@@ -155,6 +157,16 @@ public class GameManagerScript : MonoBehaviour
                         Debug.Log("pickaxe");
 
                         target.GetComponent<lemming_behavior>().Mine();
+                    }
+                    else if (heldObjType == "stopsign")
+                    {
+                        GameObject item = Instantiate(StopsignPrefab) as GameObject;
+                        target.GetComponent<lemming_behavior>().give_object(item.GetComponent<LemmingObject>());
+                    }
+                    else if (heldObjType == "jetpack")
+                    {
+                        GameObject item = Instantiate(JetPackPrefab) as GameObject;
+                        target.GetComponent<lemming_behavior>().give_object(item.GetComponent<LemmingObject>());
                     }
                 }
                 
