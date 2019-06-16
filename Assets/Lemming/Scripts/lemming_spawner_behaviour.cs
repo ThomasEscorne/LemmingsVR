@@ -27,7 +27,7 @@ public class lemming_spawner_behaviour : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        for (int i = 0; i < number_of_lemmings; i++)
+        while (number_of_lemmings != 0)
         {
             GameObject container = Instantiate(lemming, new Vector3(transform.position.x, transform.position.y - 0.14f, transform.position.z), Quaternion.identity) as GameObject;
             container.transform.GetChild(0).gameObject.GetComponent<lemming_behavior>().Tilemap = TilemapForLemming;
@@ -41,7 +41,7 @@ public class lemming_spawner_behaviour : MonoBehaviour
                 GameObject lemming = container.transform.GetChild(0).gameObject;
                 lemming.GetComponent<lemming_behavior>().give_object(stuff.GetComponent<LemmingObject>());
             }
-           
+            number_of_lemmings--;
             yield return new WaitForSeconds(1.5f);
         }
         yield return new WaitForSeconds(2);
